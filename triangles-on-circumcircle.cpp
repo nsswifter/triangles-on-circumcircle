@@ -28,14 +28,15 @@ struct CircumcircleTriangleGenerator {
         for (int i = 0; i < numberOfPoints; ++i) {
             // Calculate the angle for each point on the circumcircle
             double angle = static_cast<double>(i) * (2 * M_PI) / static_cast<double>(numberOfPoints);
-            
+
+
             // Calculate the x and y coordinates using polar coordinates
             double x = circumcenter.x + circumradius * cos(angle);
             double y = circumcenter.y + circumradius * sin(angle);
-            
+
             // Create a Point structure for the current coordinates
             Point point = {x, y};
-            
+
             // Assign the current point to the appropriate triangle in the array
             triangles[i / 3][i % 3] = point;
         }
@@ -45,10 +46,18 @@ struct CircumcircleTriangleGenerator {
 };
 
 int main() {
-    // Prepare Inputs
-    Point circumcenter = {100, 100};
-    double circumradius = 80;
-    int numberOfTriangles = 3;
+    // Get inputs from the user
+    std::cout << "Enter circumcenter coordinates (x y): ";
+    Point circumcenter;
+    std::cin >> circumcenter.x >> circumcenter.y;
+
+    std::cout << "Enter circumradius: ";
+    double circumradius;
+    std::cin >> circumradius;
+
+    std::cout << "Enter the number of triangles: ";
+    int numberOfTriangles;
+    std::cin >> numberOfTriangles;
 
     // Generate triangles
     Point** triangles = CircumcircleTriangleGenerator::generateTriangles(circumcenter, circumradius, numberOfTriangles);
