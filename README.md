@@ -43,3 +43,6 @@ triangles:
 - The output format allows easy interpretation of the geometric representation of the triangles on the circumcircle.
 
 Users can visualize and further analyze the generated triangles based on this output.
+
+### License:
+This project is licensed under the [MIT License](LICENSE).
